@@ -15,9 +15,14 @@ class GameMatchRequestHandler(APIView):
     # DELETE for "match" will remove match and it's score as well
     def delete(self, request, *args, **kwargs):
         search_match_id = self.request.GET.get("match_id", -1)
-        result_objects = Score.objects.filter(match_id = search_match_id)
-        if result_objects.count() > 0 :
-           result_objects.delete()
+        result_score_objects = Score.objects.filter(match_id = search_match_id)
+        result_match_objects = Match.objects.filter(match_id = search_match_id)
+        
+        if result_score_objects.count() > 0 :
+           result_score_objects.delete()
+
+        if result_match_objects.count() > 0 :
+           result_match_objects.delete()
         
         return give_success_response("done")
 
