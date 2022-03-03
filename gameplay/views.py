@@ -3,13 +3,13 @@ from typing import Dict
 from django.http import HttpResponse
 from django.shortcuts import render
 from rest_framework.views import APIView
-from .models import Match, Score
-from .serializers import MatchSerializer, ScoreSerializer
+from .models import GameMatch as Match
+from .models import GameScore as Score
 from RequestPlayground.base_response import *
 import json
 
 
-class MatchRequestHandler(APIView):
+class GameMatchRequestHandler(APIView):
 
 
     # DELETE for "match" will remove match and it's score as well
@@ -35,7 +35,7 @@ class MatchRequestHandler(APIView):
         return give_success_response_with_object(records)
 
 
-class ScoreRequestHandler(APIView):
+class GameScoreRequestHandler(APIView):
 
     # GET for "score" will return a match data with given "match_id"
     def get(self, request, *args, **kwargs):

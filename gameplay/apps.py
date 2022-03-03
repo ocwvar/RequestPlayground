@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ApiConfig(AppConfig):
+class GameplayConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'matching'
+    name = 'gameplay'

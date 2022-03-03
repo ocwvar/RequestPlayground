@@ -16,5 +16,5 @@ Including another URLconf
 from django.urls import path, include
 
 urlpatterns = [
-    path('api_1/', include('matching.urls')),
+    path('game_play/', include('gameplay.urls')),
 ]
